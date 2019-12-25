@@ -1,12 +1,20 @@
 #  Local .terraform directories
 **/.terraform/*
+.terraform/
+**/test
+create_sa/
 
 # .tfstate files
 *.tfstate
 *.tfstate.*
+*.DS_Store
 
 # .tfvars files
 *.tfvars
 
-# .tfplan files
-*.tfplan
+# Secret files
+**/test.tf
+**/secret/*.json
+**/secret/*.tfvars
+**/*.tfplan
+**/next-step.txt
