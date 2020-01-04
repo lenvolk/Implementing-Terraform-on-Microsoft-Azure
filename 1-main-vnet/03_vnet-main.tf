@@ -11,7 +11,7 @@ module "vnet-main" {
   address_space       = var.vnet_cidr_range
   subnet_prefixes     = var.subnet_prefixes
   subnet_names        = var.subnet_names
-  nsg_ids             = {}
+  nsg_ids             = {}  # we don't have any NSG IDs to provide
 
   tags = {
     environment = "dev"

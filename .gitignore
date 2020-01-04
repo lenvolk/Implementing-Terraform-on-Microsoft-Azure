@@ -10,11 +10,11 @@ create_sa/
 *.DS_Store
 
 # .tfvars files
-*.tfvars
+#*.tfvars
 
 # Secret files
 **/test.tf
 **/secret/*.json
-**/secret/*.tfvars
+#**/secret/*.tfvars
 **/*.tfplan
 **/next-step.txt
