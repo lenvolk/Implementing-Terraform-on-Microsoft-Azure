@@ -1,6 +1,7 @@
+az account list
 az account show
 az account set --subscription "AzIntConsumption"
-
+az logout
 
 
 
@@ -10,6 +11,8 @@ az account set --subscription "AzIntConsumption"
 terraform init -backend-config="./variable/backend.tfvars" -backend-config="../secret/main-lv.json" -reconfigure
 
 terraform workspace new Development
+# terraform workspace list
+# terraform workspace select dev 
 
 terraform plan -var-file="./variable/00_main-vnet-dev.tfvars" -var-file="../secret/main-lv.json" -out development-vnet.tfplan
 

@@ -2,7 +2,9 @@ az account show
 az account set --subscription "AzIntConsumption"
 
 
+
 terraform init
+terraform validate
 
 terraform workspace new Development
 
