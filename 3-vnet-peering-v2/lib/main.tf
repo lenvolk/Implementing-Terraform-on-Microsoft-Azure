@@ -22,7 +22,7 @@ data "terraform_remote_state" "main_vnet_info" {
   config = {
     storage_account_name = var.tfsa
     container_name       = var.tfcnt
-    key                  =  "${var.vnet_key}env:${terraform.workspace}"  #"${var.vnet_key}env:Development"  #"main-vnet-01-dev.tfstateenv:Development" 
+    key                  =  "${var.vnet_key}env:${terraform.workspace}" 
     access_key           = var.ackey
   }
 }
@@ -42,19 +42,3 @@ output "vnet_name" {
 output "sub_id" {
   value = data.terraform_remote_state.main_vnet_info.outputs.sub_id
 }
-
-# output "client_id" {
-#   value = data.terraform_remote_state.main_vnet_info.outputs.client_id
-# }
-
-# output "principal_id" {
-#   value = data.terraform_remote_state.main_vnet_info.outputs.principal_id
-# }
-
-# output "client_secrete" {
-#   value = data.terraform_remote_state.main_vnet_info.outputs.client_secrete
-# }
-
-
-
-
