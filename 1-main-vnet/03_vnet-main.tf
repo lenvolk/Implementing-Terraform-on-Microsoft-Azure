@@ -13,10 +13,10 @@ module "vnet-main" {
   subnet_names        = var.subnet_names
   nsg_ids             = {}  # we don't have any NSG IDs to provide
 
-   providers           = {
-   azurerm           = azurerm.networking
-  }
-
+  #  providers          = {
+  #  azurerm            = azurerm.networking
+  # }
+ 
   tags = {
     environment = "dev"
     costcenter  = "it"

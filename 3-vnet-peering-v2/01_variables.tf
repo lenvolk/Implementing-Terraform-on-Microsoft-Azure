@@ -17,6 +17,22 @@ variable "client_id" {
 variable "client_secret" {
   description = "Azure service principal application Secret"
 }
+#### Remote State
+variable tfsa {
+  default = ""
+}
+
+variable tfcnt {
+  default = ""
+}
+
+variable vnet_key {
+    default = ""
+}
+
+variable ackey {
+  default = ""
+}
 
 # variable "sec_resource_group_name" {
 #   type    = string

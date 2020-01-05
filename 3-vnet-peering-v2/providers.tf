@@ -1,26 +1,18 @@
-
 #############################################################################
 # PROVIDERS
 #############################################################################
 
 provider "azurerm" {
+  # alias           = "security"
   subscription_id = var.subscription_id
   client_id       = var.client_id
   client_secret   = var.client_secret
   tenant_id       = var.tenant_id
-  version        = "~> 1.0" 
-  #alias          = "networking"
+  version         = "~> 1.39"
+  skip_provider_registration  = true
+  skip_credentials_validation = true
 }
 
-# provider "azurerm" {
-#   subscription_id = "25de1ca2-09a3-42e0-97cc-5fffbc53286f"  #var.mainsub_id
-#   #subscription_id = data.azurerm_subscription.current.subscription_id
-#   client_id       = var.client_id
-#   client_secret   = var.client_secret
-#   tenant_id       = var.tenant_id
-#   version        = "~> 1.0" 
-#   alias          = "security"
-# }
 
 #Set the terraform backend
 terraform {
@@ -35,6 +27,21 @@ terraform {
 
 data "azurerm_subscription" "current" {}
 
-data "azurerm_resource_group" "my_rg" {
-  name = var.rg_infr_name
+
+#############################################################################
+# LIB
+#############################################################################
+
+module "lib"{
+
+source = "./lib"
+
+tfsa = var.tfsa
+
+tfcnt = var.tfcnt
+
+vnet_key = var.vnet_key
+
+ackey = var.ackey
+
 }

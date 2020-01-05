@@ -1,19 +1,3 @@
-module "lib"{
-
-source = "./lib"
-
-# storage_account_name = var.storage_account_name
-# container_name       = var.container_name
-
-# provisioner
-
-
-
-}
-
-
-
-
 #############################################################################
 # PROVIDERS
 #############################################################################
@@ -30,14 +14,6 @@ provider "azurerm" {
 }
 
 
-provider "azuread" {
-  subscription_id = var.subscription_id
-  client_id       = var.client_id
-  client_secret   = var.client_secret
-  tenant_id       = var.tenant_id
-  version         = "~> 0.7" 
-}
-
 #Set the terraform backend
 terraform {
   required_version = ">= 0.12.6"
@@ -51,3 +27,21 @@ terraform {
 
 data "azurerm_subscription" "current" {}
 
+
+#############################################################################
+# LIB
+#############################################################################
+
+module "lib"{
+
+source = "./lib"
+
+tfsa = var.tfsa
+
+tfcnt = var.tfcnt
+
+vnet_key = var.vnet_key
+
+ackey = var.ackey
+
+}
