@@ -9,7 +9,7 @@ provider "azurerm" {
   client_secret   = var.client_secret
   tenant_id       = var.tenant_id
   version        = "~> 1.0" 
-  #alias          = "networking"
+  alias          = "networking"
 }
 
 # provider "azurerm" {
@@ -33,8 +33,11 @@ terraform {
 # DATA
 #############################################################################
 
-data "azurerm_subscription" "current" {}
+data "azurerm_subscription" "current" {
+  provider = azurerm.networking
+}
 
 data "azurerm_resource_group" "my_rg" {
+  provider = azurerm.networking
   name = var.rg_infr_name
 }
