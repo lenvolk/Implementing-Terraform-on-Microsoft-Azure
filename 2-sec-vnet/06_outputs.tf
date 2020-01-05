@@ -30,3 +30,6 @@ output "resource_group" {
   value = azurerm_resource_group.sec.name
 }
 
+# output "sec_principal_id" {
+#   value = azuread_service_principal.vnet_peering.id
+# }

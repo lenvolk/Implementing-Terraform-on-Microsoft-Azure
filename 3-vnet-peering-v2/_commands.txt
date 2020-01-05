@@ -17,6 +17,6 @@ terraform workspace select Development
 
 terraform plan -var-file="./variable/00_main-vnet-dev.tfvars" -var-file="../secret/main-lv.json" -out development-vnet-peering.tfplan
 
-terraform apply "development-vnet.tfplan"
+terraform apply "development-vnet-peering.tfplan"
 
 terraform destroy -var-file="./variable/00_main-vnet-dev.tfvars" -var-file="../secret/main-lv.json"

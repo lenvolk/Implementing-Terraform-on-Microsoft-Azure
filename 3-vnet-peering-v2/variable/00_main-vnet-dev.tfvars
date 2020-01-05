@@ -7,4 +7,5 @@ vnet_name = "security"
 
 tfsa = "psinfrasdbx10000mysa"
 tfcnt = "tfstate"
-vnet_key = "main-vnet-01-dev.tfstate"
+vnet_key_main = "main-vnet-01-dev.tfstate"
+vnet_key_sec  = "sec-vnet-01-dev.tfstate"

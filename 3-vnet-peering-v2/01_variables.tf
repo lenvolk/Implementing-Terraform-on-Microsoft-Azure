@@ -26,7 +26,10 @@ variable tfcnt {
   default = ""
 }
 
-variable vnet_key {
+variable vnet_key_main {
+    default = ""
+}
+variable vnet_key_sec {
     default = ""
 }
 
