@@ -3,7 +3,7 @@
 #############################################################################
 
 provider "azurerm" {
-  #alias           = "security"
+  alias           = "security"
   subscription_id = var.subscription_id
   client_id       = var.client_id
   client_secret   = var.client_secret
@@ -12,7 +12,6 @@ provider "azurerm" {
   skip_provider_registration  = true
   skip_credentials_validation = true
 }
-
 
 #Set the terraform backend
 terraform {
@@ -25,7 +24,9 @@ terraform {
 # DATA
 #############################################################################
 
-data "azurerm_subscription" "current" {}
+data "azurerm_subscription" "current" {
+  provider = azurerm.security
+}
 
 
 #############################################################################
