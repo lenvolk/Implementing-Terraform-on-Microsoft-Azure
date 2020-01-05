@@ -2,6 +2,8 @@
 # PROVIDERS
 #############################################################################
 
+# https://www.terraform.io/docs/configuration/providers.html#selecting-alternate-providers
+
 provider "azurerm" {
   alias           = "security"
   subscription_id = var.subscription_id
@@ -12,6 +14,15 @@ provider "azurerm" {
   skip_provider_registration  = true
   skip_credentials_validation = true
 }
+
+# provider "azurerm" {
+#   alias                       = "peering"
+#   subscription_id             = data.azurerm_subscription.current.subscription_id
+#   client_id                   = var.sec_client_id
+#   client_secret               = var.sec_client_secret
+#   skip_provider_registration  = true
+#   skip_credentials_validation = true
+# }
 
 #Set the terraform backend
 terraform {
