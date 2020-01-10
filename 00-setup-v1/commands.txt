@@ -1,0 +1,30 @@
+az account show
+az account set --subscription "AzIntConsumption"
+
+
+
+terraform init -reconfigure
+terraform validate
+
+terraform workspace new Development
+
+terraform plan -var-file="../secret/main-lv.json" -out development-setup.tfplan
+
+terraform apply development-setup.tfplan
+
+terraform destroy -var-file="../secret/main-lv.json"
+
+
+####### with remote tfstate
+
+terraform init -backend-config="./variable/backend.tfvars" -backend-config="../secret/main-lv.json" -reconfigure
+
+terraform workspace new Development
+# terraform workspace list
+# terraform workspace select Development 
+
+terraform plan -var-file="./variable/setup.tfvars" -var-file="../secret/main-lv.json" -out development-setup.tfplan
+
+terraform apply "development-setup.tfplan"
+
+terraform destroy -var-file="./variable/setup.tfvars" -var-file="../secret/main-lv.json"
