@@ -36,3 +36,12 @@ variable vnet_key_sec {
 variable ackey {
   default = ""
 }
+
+
+variable existing_rg {
+
+default = ""
+}
+variable existing_vnet {
+  default = ""
+}

@@ -15,14 +15,17 @@ provider "azurerm" {
   skip_credentials_validation = true
 }
 
-# provider "azurerm" {
-#   alias                       = "peering"
-#   subscription_id             = data.azurerm_subscription.current.subscription_id
-#   client_id                   = var.sec_client_id
-#   client_secret               = var.sec_client_secret
-#   skip_provider_registration  = true
-#   skip_credentials_validation = true
-# }
+provider "azurerm" {
+  alias                       = "peering"
+  subscription_id             = data.azurerm_subscription.current.subscription_id
+  # client_id                   = var.sec_client_id
+  # client_secret               = var.sec_client_secret
+  client_id                   = var.client_id
+  client_secret               = var.client_secret
+  tenant_id                   = var.tenant_id
+  skip_provider_registration  = true
+  skip_credentials_validation = true
+}
 
 #Set the terraform backend
 terraform {
@@ -39,6 +42,16 @@ data "azurerm_subscription" "current" {
   provider = azurerm.security
 }
 
+data "azurerm_resource_group" "existing_rg" {
+  provider = azurerm.peering
+  name = var.existing_rg
+}
+
+data "azurerm_virtual_network" "existing_vnet" {
+    provider            = azurerm.peering
+    resource_group_name = var.existing_rg
+    name                = var.existing_vnet
+}
 
 #############################################################################
 # LIB
