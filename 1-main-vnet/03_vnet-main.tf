@@ -18,7 +18,7 @@ module "vnet-main" {
   }
  
   tags = {
-    environment = "dev"
+    environment = terraform.workspace
     costcenter  = "it"
 
   }

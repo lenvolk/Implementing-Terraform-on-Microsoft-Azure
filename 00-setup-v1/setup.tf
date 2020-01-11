@@ -59,7 +59,8 @@ resource "azurerm_storage_account" "sa" {
   account_replication_type = "LRS"
 
   tags = {
-    environment = "dev"
+    #environment = "dev"
+    environment = terraform.workspace
     costcenter  = "it"
 
   }
