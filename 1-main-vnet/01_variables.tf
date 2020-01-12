@@ -28,6 +28,9 @@ variable "rg_infr_name" {
 variable "env" {
   default = "Development"
 }
+variable "vnet_type"    { 
+  default = "unset" 
+  }
 
 variable "location" {
   type    = string
