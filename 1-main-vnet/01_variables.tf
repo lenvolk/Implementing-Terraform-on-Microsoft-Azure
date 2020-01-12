@@ -42,10 +42,10 @@ variable "vnet_name" {
   default = "demo-vnet"
 }
 
-variable "subnet_prefixes" {
-  type    = list(string)
-  default = ["10.0.0.0/24", "10.0.1.0/24"]
-}
+# variable "subnet_prefixes" {
+#   type    = list(string)
+#   default = ["10.0.0.0/24", "10.0.1.0/24"]
+# }
 
 variable "subnet_names" {
   type    = list(string)
