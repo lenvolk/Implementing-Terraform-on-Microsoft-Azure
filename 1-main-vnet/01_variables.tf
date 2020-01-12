@@ -25,6 +25,10 @@ variable "rg_infr_name" {
 }
 ######
 
+variable "env" {
+  default = "Development"
+}
+
 variable "location" {
   type    = string
   default = "eastus"
@@ -33,11 +37,6 @@ variable "location" {
 variable "vnet_name" {
   type    = string
   default = "demo-vnet"
-}
-
-variable "vnet_cidr_range" {
-  type    = string
-  default = "10.0.0.0/16"
 }
 
 variable "subnet_prefixes" {
