@@ -53,3 +53,4 @@ variable "additional_tags" {
     iac = "terraform"
   }
 }
+existing_vnet = "myvnet1"

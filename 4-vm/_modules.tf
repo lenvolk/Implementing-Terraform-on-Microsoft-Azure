@@ -25,10 +25,10 @@ module "Az-Vm-Demo" {
   #source                  = "JamesDLD/Az-Vm/azurerm"
   #version                 = "0.1.2"
   source                  = "git::https://github.com/lenvolk/terraform-azurerm-Az-Vm.git//?ref=master"
-  sa_bootdiag_storage_uri = "https://infrasdbx1vpcjdld1.blob.core.windows.net/"   #(Mandatory)
-  subnets_ids             = [for x in azurerm_virtual_network.Demo.subnet : x.id] #(Mandatory)
-  linux_vms               = var.linux_vms                                         #(Mandatory)
-  windows_vms             = var.windows_vms                                       #(Mandatory)
+  sa_bootdiag_storage_uri = "https://infrasdbx1vpcjdld1.blob.core.windows.net/"            #(Mandatory)
+  subnets_ids             = [for x in azurerm_virtual_network.existing_vnet.subnet : x.id] #(Mandatory)
+  linux_vms               = var.linux_vms                                                  #(Mandatory)
+  windows_vms             = var.windows_vms                                                #(Mandatory)
   vm_resource_group_name  = data.azurerm_resource_group.rg.name
   vm_prefix               = "myproductvm" #(Optional)
   admin_username          = "myadmlogin"

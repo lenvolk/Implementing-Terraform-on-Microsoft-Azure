@@ -25,3 +25,9 @@ data "azurerm_resource_group" "my_rg" {
   #provider = azurerm.networking
   name = var.rg_infr_name
 }
+
+data "azurerm_virtual_network" "existing_vnet" {
+    #provider            = azurerm.peering
+    resource_group_name = var.rg_infr_name
+    name                = var.existing_vnet
+}
