@@ -10,6 +10,7 @@ resource "random_password" "vnet_peering" {
 
 resource "azuread_application" "vnet_peering" {
   name = "vnet-peer"
+  # tags = ["example", "tags", "here"]
 }
 
 resource "azuread_service_principal" "vnet_peering" {
