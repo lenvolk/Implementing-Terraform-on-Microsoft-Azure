@@ -1,6 +1,6 @@
 #Call module
 module "Az-VirtualNetwork-Demo" {
-  source                      = "git::https://github.com/lenvolk/terraform-azurerm-Az-VirtualNetwork.git//?ref=master"
+  source                      = "git::https://github.com/lenvolk/terraform-azurerm-Az-VirtualNetwork.git//?ref=dev"
   net_prefix                  = "myproduct-perimeter"
   network_resource_group_name = "ps-vnets"
   virtual_networks            = var.virtual_networks
