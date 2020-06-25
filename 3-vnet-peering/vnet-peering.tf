@@ -62,6 +62,29 @@ resource "azurerm_role_definition" "vnet-peering" {
   ]
 }
 
+# #################################
+# # Admin
+# # https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-admin-role
+# #################################
+# resource "azurerm_role_assignment" "aks_cluster_admin" {
+#   for_each =  toset(var.aks_cluster_admin)
+#   scope                = azurerm_kubernetes_cluster.main.id
+#   role_definition_name = "Azure Kubernetes Service Cluster Admin Role"
+#   principal_id         = each.value
+# }
+
+
+# #################################
+# # User
+# # https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role
+# ############################
+# resource "azurerm_role_assignment" "aks_cluster_user" {
+#   for_each =  toset(var.aks_cluster_user)
+#   scope                = azurerm_kubernetes_cluster.main.id
+#   role_definition_name = "Azure Kubernetes Service Cluster User Role"
+#   principal_id         = each.value
+# }
+
 resource "azurerm_role_assignment" "vnet" {
   scope              = module.vnet-main.vnet_id
   role_definition_id = azurerm_role_definition.vnet-peering.id
